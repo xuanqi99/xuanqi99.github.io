@@ -4,7 +4,7 @@
     const saved = localStorage.getItem('theme');
     if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
   } catch (_) {
-    // Navigation and filters still work when browser storage is unavailable.
+    // Navigation still works when browser storage is unavailable.
   }
 
   const themeBtn = document.querySelector('[data-theme-toggle]');
@@ -45,20 +45,6 @@
     window.matchMedia('(max-width: 860px)').addEventListener('change', () => setMenuOpen(false));
   }
 
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const publications = document.querySelectorAll('[data-year]');
-  filterButtons.forEach(btn => {
-    btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', String(b === btn));
-      });
-      btn.classList.add('active');
-      const value = btn.dataset.filter;
-      publications.forEach(item => {
-        item.style.display = value === 'all' || item.dataset.year === value ? '' : 'none';
-      });
-    });
-  });
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 })();

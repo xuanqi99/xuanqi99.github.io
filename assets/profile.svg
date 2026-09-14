@@ -2,5 +2,4 @@
 <rect width="800" height="1000" rx="48" fill="#EAF0FF"/>
 <circle cx="400" cy="335" r="165" fill="#B7C8FF"/>
 <path d="M185 880C211 664 292 554 400 554C508 554 589 664 615 880H185Z" fill="#6F8CFF"/>
-<text x="400" y="940" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#2F5CFF">Replace with your portrait</text>
 </svg>
