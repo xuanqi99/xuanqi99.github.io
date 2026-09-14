@@ -17,14 +17,14 @@ A lightweight, modern academic homepage inspired by the information architecture
 
 ## Deployment for this repository
 
-- Repository: https://github.com/xuanqi99/xuanqi.github.io
+- Repository: https://github.com/xuanqi99/xuanqi99.github.io
 - Branch: `main`
 - Publishing folder: `/ (root)`
-- Expected website: https://xuanqi99.github.io/xuanqi.github.io/
+- Expected website: https://xuanqi99.github.io/
 
 In **Settings → Pages → Build and deployment**, select **Deploy from a branch**, then **main** and **/ (root)**, and click **Save**. No framework, package installation, or build command is required.
 
-The account is `xuanqi99`, so `xuanqi.github.io` is a project repository. The account-level address `https://xuanqi99.github.io/` would require a repository named `xuanqi99.github.io`. The `404.html` base URL is pinned to this deployment so its stylesheet and home link work even for missing URLs several directories deep; update that base URL if the repository or domain changes.
+The repository name `xuanqi99.github.io` matches the account `xuanqi99`, so this is a GitHub user site served from the domain root. The `404.html` base URL is pinned to `https://xuanqi99.github.io/` so its stylesheet and home link work even for missing URLs several directories deep; update that base URL if the domain changes.
 
 All regular pages use relative links and asset paths. The CV is `cv.html`, with **Print / Save as PDF**; no separate PDF was supplied. If adding a PDF later, place it in `assets/` and link to it using a relative path.
 
