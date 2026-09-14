@@ -60,10 +60,9 @@ button, input { font: inherit; }
   gap: 24px;
 }
 
-.brand { font-weight: 800; letter-spacing: -0.02em; font-size: 1.08rem; }
 .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); }
 .nav-links a:hover, .nav-links a.active { color: var(--text); }
-.nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 
 .icon-btn {
   width: 40px;
@@ -137,16 +136,18 @@ button, input { font: inherit; }
 .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
 
 .portrait-card {
+  width: 50%;
+  justify-self: center;
   background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--accent-soft) 45%, var(--surface)));
   border: 1px solid var(--line);
-  border-radius: 30px;
-  padding: 18px;
+  border-radius: 15px;
+  padding: 9px;
   box-shadow: var(--shadow);
 }
 
 .portrait {
   aspect-ratio: 4 / 5;
-  border-radius: 22px;
+  border-radius: 11px;
   overflow: hidden;
   background: var(--accent-soft);
 }
@@ -217,6 +218,7 @@ button, input { font: inherit; }
 
 .page-hero { padding: 76px 0 30px; }
 .page-hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); }
+.page-hero h1.kicker { font-size: .9rem; line-height: 1.65; letter-spacing: normal; margin: 0 0 20px; }
 .page-hero p { color: var(--muted); font-size: 1.18rem; max-width: 760px; }
 
 .contact-strip {
@@ -235,7 +237,6 @@ button, input { font: inherit; }
 
 .site-footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); }
 .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 
 .print-only { display: none; }
 .cv-grid { display: grid; grid-template-columns: 250px 1fr; gap: 38px; }
@@ -248,7 +249,7 @@ button, input { font: inherit; }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; padding-top: 58px; }
-  .portrait-card { max-width: 390px; }
+  .portrait-card { max-width: 195px; }
   .cards-3 { grid-template-columns: 1fr; }
   .pub-card { grid-template-columns: 1fr; }
   .cv-grid { grid-template-columns: 1fr; }
