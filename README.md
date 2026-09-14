@@ -20,7 +20,7 @@ This is a static HTML/CSS/JavaScript site. No framework, package installation, o
 - `404.html`: custom error page with a domain-root base URL
 - `styles.css`: responsive layout, light/dark themes and print styles
 - `script.js`: theme preference, accessible mobile navigation and copyright year
-- `assets/profile.svg`: neutral profile illustration, pending a real portrait
+- `assets/profile.jpg`: Xuan Qi’s original portrait, displayed with centered CSS cropping
 
 ## Local preview
 
@@ -30,7 +30,6 @@ Regular pages use relative navigation and asset URLs. The custom 404 page uses `
 
 ## Future additions
 
-- Portrait: add `assets/profile.jpg`, then update the image source and alt text at the TODO in `index.html`. The existing portrait container preserves the layout.
 - Full CV: add the real file at `assets/cv.pdf`, then enable a download link at the TODO in `cv.html`. There is currently no CV PDF download; the page contains only the supplied academic information and can be printed.
 
 Publication details, June 2026 news dates, affiliations and profile URLs were provided by Xuan Qi. Keep publication entries synchronized across `index.html`, `publications.html` and `cv.html`. Only add links and biographical information that have been provided or confirmed.
