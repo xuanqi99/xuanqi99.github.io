@@ -115,7 +115,8 @@ button, input { font: inherit; }
 }
 
 .hero .lead strong { color: var(--text); }
-.chinese-name { display: block; font-size: .42em; line-height: 1.4; letter-spacing: .04em; margin-top: .25em; }
+.hero h1.person-name, .page-hero h1.person-name { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.25; letter-spacing: -.025em; }
+.chinese-name { display: block; font-size: inherit; line-height: inherit; letter-spacing: 0; margin-top: .15em; }
 .hero-affiliation { color: var(--muted); font-weight: 700; margin: 0 0 20px; }
 .hero > *, .cv-grid > *, .cards-3 > * { min-width: 0; }
 
