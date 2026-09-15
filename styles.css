@@ -163,6 +163,7 @@ button, input { font: inherit; }
   margin-bottom: 28px;
 }
 .section h2 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 2.55rem); letter-spacing: -0.035em; }
+.section h2.publication-category { font-size: 1.25rem; line-height: 1.4; letter-spacing: -0.02em; }
 .section-intro { color: var(--muted); max-width: 640px; margin: 6px 0 0; }
 .text-link { color: var(--accent); font-weight: 750; }
 
