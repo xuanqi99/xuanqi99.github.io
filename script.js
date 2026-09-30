@@ -45,6 +45,39 @@
     window.matchMedia('(max-width: 860px)').addEventListener('change', () => setMenuOpen(false));
   }
 
+  const publicationsTarget = document.querySelector('[data-publications-sync]');
+  if (publicationsTarget) {
+    const source = publicationsTarget.getAttribute('data-publications-sync');
+    const sectionIds = (publicationsTarget.getAttribute('data-publication-sections') || '')
+      .split(',')
+      .map((id) => id.trim())
+      .filter(Boolean);
+
+    fetch(source, { cache: 'no-cache' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Unable to load publications source.');
+        return response.text();
+      })
+      .then((html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const cards = [];
+
+        sectionIds.forEach((id) => {
+          const heading = doc.getElementById(id);
+          const section = heading ? heading.closest('section') : null;
+          if (!section) return;
+          section.querySelectorAll('.pub-grid > .pub-card').forEach((card) => {
+            cards.push(card.cloneNode(true));
+          });
+        });
+
+        if (cards.length) publicationsTarget.replaceChildren(...cards);
+      })
+      .catch(() => {
+        // Keep the static fallback already present in cv.html.
+      });
+  }
+
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
