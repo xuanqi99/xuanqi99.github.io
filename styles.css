@@ -163,6 +163,16 @@ button, input { font: inherit; }
   margin-bottom: 28px;
 }
 .section h2 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 2.55rem); letter-spacing: -0.035em; }
+.pub-note {
+  display: inline-block;
+  margin-left: .55rem;
+  color: var(--muted);
+  font-size: .82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
 .section h2.publication-category { font-size: 1.25rem; line-height: 1.4; letter-spacing: -0.02em; }
 .section-intro { color: var(--muted); max-width: 640px; margin: 6px 0 0; }
 .text-link { color: var(--accent); font-weight: 750; }
@@ -279,6 +289,7 @@ button, input { font: inherit; }
   .news-item { grid-template-columns: 1fr; gap: 4px; }
   .section { padding: 40px 0; }
   .section-head { align-items: flex-start; flex-direction: column; }
+  .pub-note { display: block; margin: .35rem 0 0; }
   .contact-strip { align-items: flex-start; flex-direction: column; }
 }
 
