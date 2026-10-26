@@ -49,7 +49,7 @@
     .research-map-points .research-map-point-light { opacity: .55; }
     .research-map text { font-family: inherit; fill: var(--text); }
     .research-map-root { font-size: 17px; font-weight: 750; }
-    .research-map-area { font-size: 17px; font-weight: 750; }
+    .research-map-area { font-size: 16px; font-weight: 750; }
     .research-map-topic { font-size: 16px; font-weight: 500; }
     .research-map .research-map-paper { fill: var(--accent); font-size: 17px; font-weight: 750; }
     .research-map .research-map-venue { fill: var(--muted); font-size: 13.5px; }
@@ -65,7 +65,7 @@
         border-radius: 14px;
         padding: 18px 20px;
       }
-      .research-area-mobile h3 { font-size: 1.06rem; margin: 0 0 16px; letter-spacing: -.02em; }
+      .research-area-mobile h3 { font-size: clamp(.9rem, 3.8vw, 1.06rem); margin: 0 0 16px; letter-spacing: -.02em; white-space: nowrap; }
       .research-topic-mobile {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -158,14 +158,8 @@
         <g class="research-map-names">
           <text class="research-map-root" x="21" y="222">Research</text>
 
-          <text class="research-map-area" x="214" y="99">
-            <tspan x="214" dy="0">Deep Learning</tspan>
-            <tspan x="214" dy="20">Theory</tspan>
-          </text>
-          <text class="research-map-area" x="214" y="300">
-            <tspan x="214" dy="0">Generative</tspan>
-            <tspan x="214" dy="20">AI</tspan>
-          </text>
+          <text class="research-map-area" x="199" y="121">Deep Learning Theory</text>
+          <text class="research-map-area" x="199" y="321">Generative AI</text>
 
           <text class="research-map-topic" x="447" y="67">Neural Network Geometry</text>
           <text class="research-map-topic" x="447" y="157">Neural Network Expressivity</text>
