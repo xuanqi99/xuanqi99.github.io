@@ -4,15 +4,95 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research | Xuan Qi</title>
-  <meta name="description" content="Xuan Qi’s research interests: Generative Modeling, Representation Geometry, and Transfer Learning." />
+  <meta name="description" content="Xuan Qi's research overview: Model Interpretability and Generative Modeling, with four selected publications." />
   <meta name="author" content="Xuan Qi" />
   <link rel="canonical" href="https://xuanqi99.github.io/research.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Xuan Qi" />
   <meta property="og:title" content="Research | Xuan Qi" />
-  <meta property="og:description" content="Xuan Qi’s research interests: Generative Modeling, Representation Geometry, and Transfer Learning." />
+  <meta property="og:description" content="Xuan Qi's research overview: Model Interpretability and Generative Modeling, with four selected publications." />
   <meta property="og:url" content="https://xuanqi99.github.io/research.html" />
   <link rel="stylesheet" href="styles.css" />
+<style>
+    /* Research tree: scoped to the Research page; supports the site's light/dark themes. */
+    .research-overview-section { padding-top: 18px; }
+    .research-map-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(20px, 3vw, 32px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .025);
+    }
+    .research-map-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .research-map-header h2 {
+      font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+      letter-spacing: -.035em;
+    }
+    .research-map-subtitle { color: var(--muted); font-size: .85rem; }
+    .research-map { display: block; width: 100%; height: auto; margin: 13px auto -5px; overflow: visible; }
+    .research-map-edges path {
+      fill: none;
+      stroke: var(--muted);
+      stroke-opacity: .49;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+    }
+    .research-map-points circle { fill: var(--muted); }
+    .research-map-points .research-map-point-strong { fill: var(--text); opacity: .75; }
+    .research-map-points .research-map-point-light { opacity: .55; }
+    .research-map text { font-family: inherit; fill: var(--text); }
+    .research-map-root { font-size: 17px; font-weight: 750; }
+    .research-map-area { font-size: 17px; font-weight: 750; }
+    .research-map-topic { font-size: 16px; font-weight: 500; }
+    .research-map .research-map-paper { fill: var(--accent); font-size: 17px; font-weight: 750; }
+    .research-map .research-map-venue { fill: var(--muted); font-size: 13.5px; }
+    .research-map a:hover .research-map-paper,
+    .research-map a:focus-visible .research-map-paper { text-decoration: underline; }
+    .research-map a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .research-tree-mobile { display: none; }
+    @media (max-width: 900px) {
+      .research-map { display: none; }
+      .research-tree-mobile { display: grid; gap: 18px; margin-top: 24px; }
+      .research-area-mobile {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 20px;
+      }
+      .research-area-mobile h3 { font-size: 1.06rem; margin: 0 0 16px; letter-spacing: -.02em; }
+      .research-topic-mobile {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 2px 18px;
+        align-items: baseline;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+      }
+      .research-topic-label { font-size: .9rem; }
+      .research-topic-mobile a { color: var(--accent); font-weight: 750; }
+      .research-topic-mobile small { grid-column: 2; color: var(--muted); font-size: .76rem; }
+    }
+    @media (max-width: 520px) {
+      .research-map-card { padding: 18px 15px; }
+      .research-map-subtitle { font-size: .76rem; }
+      .research-area-mobile { padding: 16px; }
+      .research-topic-mobile { grid-template-columns: 1fr; gap: 3px; }
+      .research-topic-mobile small { grid-column: 1; }
+      .research-topic-label { font-size: .82rem; color: var(--muted); }
+    }
+    @media print {
+      .research-map { display: block !important; }
+      .research-tree-mobile { display: none !important; }
+      .research-map-card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -35,13 +115,123 @@
 
   <section class="page-hero">
     <h1 class="kicker">Research</h1>
-    <p>My research focuses on understanding and developing learning systems through generative modeling, representation geometry, and transfer learning across domains and distributions.</p>
+    <p>My research spans <strong>model interpretability</strong> and <strong>generative modeling</strong>, from the geometry and expressivity of neural networks to diffusion-based conditioning and adaptation.</p>
   </section>
-  <section class="section" aria-label="Research areas">
-    <div class="cards-3">
-      <article class="info-card"><h3>Generative Modeling</h3><p>Research on controllable and conditional visual generation leveraging Generative Foundation Models (GenFMs).</p></article>
-      <article class="info-card"><h3>Representation Geometry</h3><p>Research on understanding the geometric structure of learned representations and their connections to model expressivity and behavior.</p></article>
-      <article class="info-card"><h3>Transfer Learning</h3><p>Research on parameter-efficient fine-tuning (PEFT) for transfer and generalization across domains and distributions.</p></article>
+  <section class="section research-overview-section" aria-labelledby="research-overview-heading">
+    <div class="research-map-card">
+      <div class="research-map-header">
+        <h2 id="research-overview-heading">Research Overview</h2>
+        <span class="research-map-subtitle">Two research areas · Four selected publications</span>
+      </div>
+
+      <!-- Desktop: an accessible, dependency-free vector research tree. -->
+      <svg class="research-map" viewBox="0 0 1090 430" role="img"
+           aria-labelledby="research-tree-title research-tree-desc"
+           xmlns="http://www.w3.org/2000/svg">
+        <title id="research-tree-title">Research overview: two areas and four publications</title>
+        <desc id="research-tree-desc">Model Interpretability covers Neural Network Geometry (AffineLens, Machine Learning 2026) and Neural Network Expressivity (Expressivity Saturation, TMLR 2026). Generative Modeling covers Diffusion Conditioning (VT-DUDA, TMLR 2026) and Diffusion Fine-Tuning (MUSE, NeurIPS 2026). Publication titles are links.</desc>
+
+        <g class="research-map-edges" aria-hidden="true">
+          <path d="M 167 217 C 267 217, 263 116, 387 116"/>
+          <path d="M 167 217 C 267 217, 263 316, 387 316"/>
+          <path d="M 387 116 C 519 116, 546 74, 691 74"/>
+          <path d="M 387 116 C 519 116, 546 164, 691 164"/>
+          <path d="M 387 316 C 519 316, 546 269, 691 269"/>
+          <path d="M 387 316 C 519 316, 546 359, 691 359"/>
+          <path d="M 691 74 H 781"/>
+          <path d="M 691 164 H 781"/>
+          <path d="M 691 269 H 781"/>
+          <path d="M 691 359 H 781"/>
+        </g>
+
+        <g class="research-map-points" aria-hidden="true">
+          <circle class="research-map-point-strong" cx="167" cy="217" r="5.5"/>
+          <circle class="research-map-point-strong" cx="387" cy="116" r="5.5"/>
+          <circle class="research-map-point-strong" cx="387" cy="316" r="5.5"/>
+          <circle cx="691" cy="74" r="5.5"/>
+          <circle cx="691" cy="164" r="5.5"/>
+          <circle cx="691" cy="269" r="5.5"/>
+          <circle cx="691" cy="359" r="5.5"/>
+          <circle class="research-map-point-light" cx="781" cy="74" r="5"/>
+          <circle class="research-map-point-light" cx="781" cy="164" r="5"/>
+          <circle class="research-map-point-light" cx="781" cy="269" r="5"/>
+          <circle class="research-map-point-light" cx="781" cy="359" r="5"/>
+        </g>
+
+        <g class="research-map-names">
+          <text class="research-map-root" x="21" y="222">Research</text>
+
+          <text class="research-map-area" x="214" y="99">
+            <tspan x="214" dy="0">Model</tspan>
+            <tspan x="214" dy="20">Interpretability</tspan>
+          </text>
+          <text class="research-map-area" x="214" y="300">
+            <tspan x="214" dy="0">Generative</tspan>
+            <tspan x="214" dy="20">Modeling</tspan>
+          </text>
+
+          <text class="research-map-topic" x="447" y="67">Neural Network Geometry</text>
+          <text class="research-map-topic" x="447" y="157">Neural Network Expressivity</text>
+          <text class="research-map-topic" x="447" y="262">Diffusion Conditioning</text>
+          <text class="research-map-topic" x="447" y="352">Diffusion Fine-Tuning</text>
+        </g>
+
+        <g class="research-map-publications">
+          <a href="https://arxiv.org/abs/2605.06218" target="_blank" rel="noopener noreferrer"
+             aria-label="Read AffineLens, Machine Learning 2026">
+            <text class="research-map-paper" x="801" y="69">AffineLens</text>
+          </a>
+          <text class="research-map-venue" x="801" y="93">Machine Learning 2026</text>
+
+          <a href="https://openreview.net/forum?id=JiyZE3yKv8" target="_blank" rel="noopener noreferrer"
+             aria-label="Read Expressivity Saturation, TMLR 2026">
+            <text class="research-map-paper" x="801" y="159">Expressivity Saturation</text>
+          </a>
+          <text class="research-map-venue" x="801" y="183">TMLR 2026</text>
+
+          <a href="https://openreview.net/forum?id=Y956680PCe" target="_blank" rel="noopener noreferrer"
+             aria-label="Read VT-DUDA, TMLR 2026">
+            <text class="research-map-paper" x="801" y="264">VT-DUDA</text>
+          </a>
+          <text class="research-map-venue" x="801" y="288">TMLR 2026</text>
+
+          <a href="https://arxiv.org/abs/2609.33716" target="_blank" rel="noopener noreferrer"
+             aria-label="Read MUSE, NeurIPS 2026">
+            <text class="research-map-paper" x="801" y="354">MUSE</text>
+          </a>
+          <text class="research-map-venue" x="801" y="378">NeurIPS 2026</text>
+        </g>
+      </svg>
+
+      <!-- Mobile: the same hierarchy, with readable text and touch-friendly links. -->
+      <div class="research-tree-mobile" aria-label="Research areas and papers">
+        <article class="research-area-mobile">
+          <h3>Model Interpretability</h3>
+          <div class="research-topic-mobile">
+            <span class="research-topic-label">Neural Network Geometry</span>
+            <a href="https://arxiv.org/abs/2605.06218" target="_blank" rel="noopener noreferrer">AffineLens</a>
+            <small>Machine Learning 2026</small>
+          </div>
+          <div class="research-topic-mobile">
+            <span class="research-topic-label">Neural Network Expressivity</span>
+            <a href="https://openreview.net/forum?id=JiyZE3yKv8" target="_blank" rel="noopener noreferrer">Expressivity Saturation</a>
+            <small>TMLR 2026</small>
+          </div>
+        </article>
+        <article class="research-area-mobile">
+          <h3>Generative Modeling</h3>
+          <div class="research-topic-mobile">
+            <span class="research-topic-label">Diffusion Conditioning</span>
+            <a href="https://openreview.net/forum?id=Y956680PCe" target="_blank" rel="noopener noreferrer">VT-DUDA</a>
+            <small>TMLR 2026</small>
+          </div>
+          <div class="research-topic-mobile">
+            <span class="research-topic-label">Diffusion Fine-Tuning</span>
+            <a href="https://arxiv.org/abs/2609.33716" target="_blank" rel="noopener noreferrer">MUSE</a>
+            <small>NeurIPS 2026</small>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
   <section class="section">
