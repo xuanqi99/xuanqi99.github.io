@@ -51,6 +51,7 @@
     .research-map-root { font-size: 17px; font-weight: 750; }
     .research-map-area { font-size: 16px; font-weight: 750; }
     .research-map-topic { font-size: 16px; font-weight: 500; }
+    .research-map .research-map-edge-label { fill: var(--muted); font-size: 12.5px; font-weight: 650; letter-spacing: .015em; text-anchor: middle; }
     .research-map .research-map-paper { fill: var(--accent); font-size: 17px; font-weight: 750; }
     .research-map .research-map-venue { fill: var(--muted); font-size: 13.5px; }
     .research-map a:hover .research-map-paper,
@@ -126,7 +127,7 @@
            aria-labelledby="research-tree-title research-tree-desc"
            xmlns="http://www.w3.org/2000/svg">
         <title id="research-tree-title">Research overview: two areas and four publications</title>
-        <desc id="research-tree-desc">Deep Learning Theory covers Neural Network Geometry (AffineLens, Machine Learning 2026) and Neural Network Expressivity (Expressivity Saturation, TMLR 2026). Generative AI covers Diffusion Conditioning (VT-DUDA, TMLR 2026) and Diffusion Fine-Tuning (MUSE, NeurIPS 2026). Publication titles are links.</desc>
+        <desc id="research-tree-desc">Deep Learning Theory covers Neural Network Geometry (AffineLens, Machine Learning 2026) and Neural Network Expressivity (Expressivity Saturation, TMLR 2026). Generative AI covers Diffusion Conditioning (VT-DUDA, TMLR 2026) and Diffusion Fine-Tuning (MUSE, NeurIPS 2026). Both diffusion papers concern UDA (Unsupervised Domain Adaptation). Publication titles are links.</desc>
 
         <g class="research-map-edges" aria-hidden="true">
           <path d="M 167 217 C 267 217, 263 116, 387 116"/>
@@ -165,6 +166,8 @@
           <text class="research-map-topic" x="447" y="157">Neural Network Expressivity</text>
           <text class="research-map-topic" x="447" y="262">Diffusion Conditioning</text>
           <text class="research-map-topic" x="447" y="352">Diffusion Fine-Tuning</text>
+          <text class="research-map-edge-label" x="736" y="253">UDA</text>
+          <text class="research-map-edge-label" x="736" y="343">UDA</text>
         </g>
 
         <g class="research-map-publications">
