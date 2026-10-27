@@ -60,33 +60,74 @@
     .research-map a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
     .research-tree-mobile { display: none; }
     @media (max-width: 900px) {
+      /* Use a legible vertical research tree on narrow screens. */
       .research-map { display: none; }
-      .research-tree-mobile { display: grid; gap: 18px; margin-top: 24px; }
+      .research-tree-mobile { display: grid; gap: 16px; margin-top: 20px; min-width: 0; }
       .research-area-mobile {
+        min-width: 0;
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 18px 20px;
       }
-      .research-area-mobile h3 { font-size: clamp(.9rem, 3.8vw, 1.06rem); margin: 0 0 16px; letter-spacing: -.02em; white-space: nowrap; }
-      .research-topic-mobile {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 2px 18px;
-        align-items: baseline;
-        padding: 12px 0;
-        border-top: 1px solid var(--line);
+      .research-area-mobile h3 {
+        font-size: clamp(1rem, 3.8vw, 1.12rem);
+        line-height: 1.4;
+        margin: 0 0 16px;
+        letter-spacing: -.02em;
+        overflow-wrap: anywhere;
       }
-      .research-topic-label { font-size: .9rem; }
-      .research-topic-mobile a { color: var(--accent); font-weight: 750; }
-      .research-topic-mobile small { grid-column: 2; color: var(--muted); font-size: .76rem; }
-      .research-topic-mobile .research-keyword-mobile { font-size: .72rem; font-weight: 650; }
+      .research-topic-mobile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        min-width: 0;
+        margin-left: 5px;
+        padding: 0 0 20px 18px;
+        border-left: 1.5px solid var(--line);
+      }
+      .research-topic-mobile:last-child { padding-bottom: 0; }
+      .research-topic-mobile::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 7px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--muted);
+      }
+      .research-topic-label {
+        font-size: .9rem;
+        font-weight: 600;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+      .research-topic-mobile .research-keyword-mobile {
+        color: var(--muted);
+        font-size: .72rem;
+        font-weight: 650;
+        line-height: 1.4;
+        margin: 0 0 5px;
+      }
+      .research-topic-mobile a {
+        color: var(--accent);
+        font-size: 1rem;
+        line-height: 1.45;
+        font-weight: 750;
+        overflow-wrap: anywhere;
+      }
+      .research-topic-mobile small {
+        color: var(--muted);
+        font-size: .78rem;
+        line-height: 1.4;
+      }
     }
     @media (max-width: 520px) {
       .research-map-card { padding: 18px 15px; }
       .research-area-mobile { padding: 16px; }
-      .research-topic-mobile { grid-template-columns: 1fr; gap: 3px; }
-      .research-topic-mobile small { grid-column: 1; }
-      .research-topic-label { font-size: .82rem; color: var(--muted); }
+      .research-topic-label { font-size: .86rem; }
     }
     @media print {
       .research-map { display: block !important; }
@@ -201,17 +242,19 @@
         </g>
       </svg>
 
-      <!-- Mobile: the same hierarchy, with readable text and touch-friendly links. -->
+      <!-- Mobile: preserve the same research hierarchy as a readable vertical tree. -->
       <div class="research-tree-mobile" aria-label="Research areas and papers">
         <article class="research-area-mobile">
           <h3>Generative AI</h3>
           <div class="research-topic-mobile">
             <span class="research-topic-label">Diffusion Fine-Tuning</span>
+            <span class="research-keyword-mobile">UDA</span>
             <a href="https://arxiv.org/abs/2609.33716" target="_blank" rel="noopener noreferrer">MUSE</a>
             <small>NeurIPS 2026</small>
           </div>
           <div class="research-topic-mobile">
             <span class="research-topic-label">Diffusion Conditioning</span>
+            <span class="research-keyword-mobile">UDA</span>
             <a href="https://openreview.net/forum?id=Y956680PCe" target="_blank" rel="noopener noreferrer">VT-DUDA</a>
             <small>TMLR 2026</small>
           </div>
@@ -220,15 +263,15 @@
           <h3>Deep Learning Theory</h3>
           <div class="research-topic-mobile">
             <span class="research-topic-label">Neural Network Geometry</span>
+            <span class="research-keyword-mobile">Region Enumeration</span>
             <a href="https://arxiv.org/abs/2605.06218" target="_blank" rel="noopener noreferrer">AffineLens</a>
             <small>Machine Learning 2026</small>
-            <small class="research-keyword-mobile">Region Enumeration</small>
           </div>
           <div class="research-topic-mobile">
             <span class="research-topic-label">Neural Network Expressivity</span>
+            <span class="research-keyword-mobile">Region Utilization</span>
             <a href="https://openreview.net/forum?id=JiyZE3yKv8" target="_blank" rel="noopener noreferrer">Expressivity Saturation</a>
             <small>TMLR 2026</small>
-            <small class="research-keyword-mobile">Region Utilization</small>
           </div>
         </article>
       </div>
