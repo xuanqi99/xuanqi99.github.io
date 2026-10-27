@@ -52,6 +52,7 @@
     .research-map-area { font-size: 16px; font-weight: 750; }
     .research-map-topic { font-size: 16px; font-weight: 500; }
     .research-map .research-map-edge-label { fill: var(--muted); font-size: 12.5px; font-weight: 650; letter-spacing: .015em; text-anchor: middle; }
+    .research-map .research-map-edge-label-long { font-size: 11.5px; letter-spacing: 0; }
     .research-map .research-map-paper { fill: var(--accent); font-size: 17px; font-weight: 750; }
     .research-map .research-map-venue { fill: var(--muted); font-size: 13.5px; }
     .research-map a:hover .research-map-paper,
@@ -78,6 +79,7 @@
       .research-topic-label { font-size: .9rem; }
       .research-topic-mobile a { color: var(--accent); font-weight: 750; }
       .research-topic-mobile small { grid-column: 2; color: var(--muted); font-size: .76rem; }
+      .research-topic-mobile .research-keyword-mobile { font-size: .72rem; font-weight: 650; }
     }
     @media (max-width: 520px) {
       .research-map-card { padding: 18px 15px; }
@@ -127,7 +129,7 @@
            aria-labelledby="research-tree-title research-tree-desc"
            xmlns="http://www.w3.org/2000/svg">
         <title id="research-tree-title">Research overview: two areas and four publications</title>
-        <desc id="research-tree-desc">Generative AI covers Diffusion Conditioning (VT-DUDA, TMLR 2026) and Diffusion Fine-Tuning (MUSE, NeurIPS 2026). Deep Learning Theory covers Neural Network Geometry (AffineLens, Machine Learning 2026) and Neural Network Expressivity (Expressivity Saturation, TMLR 2026). Both diffusion papers concern UDA (Unsupervised Domain Adaptation). Publication titles are links.</desc>
+        <desc id="research-tree-desc">Generative AI covers Diffusion Conditioning (VT-DUDA, TMLR 2026) and Diffusion Fine-Tuning (MUSE, NeurIPS 2026). Deep Learning Theory covers Neural Network Geometry (Region Enumeration; AffineLens, Machine Learning 2026) and Neural Network Expressivity (Region Utilization; Expressivity Saturation, TMLR 2026). Both diffusion papers concern UDA (Unsupervised Domain Adaptation). Publication titles are links.</desc>
 
         <g class="research-map-edges" aria-hidden="true">
           <path d="M 167 217 C 267 217, 263 116, 387 116"/>
@@ -168,6 +170,8 @@
           <text class="research-map-topic" x="447" y="352">Neural Network Expressivity</text>
           <text class="research-map-edge-label" x="736" y="58">UDA</text>
           <text class="research-map-edge-label" x="736" y="148">UDA</text>
+          <text class="research-map-edge-label research-map-edge-label-long" x="736" y="253">Region Enumeration</text>
+          <text class="research-map-edge-label research-map-edge-label-long" x="736" y="343">Region Utilization</text>
         </g>
 
         <g class="research-map-publications">
@@ -218,11 +222,13 @@
             <span class="research-topic-label">Neural Network Geometry</span>
             <a href="https://arxiv.org/abs/2605.06218" target="_blank" rel="noopener noreferrer">AffineLens</a>
             <small>Machine Learning 2026</small>
+            <small class="research-keyword-mobile">Region Enumeration</small>
           </div>
           <div class="research-topic-mobile">
             <span class="research-topic-label">Neural Network Expressivity</span>
             <a href="https://openreview.net/forum?id=JiyZE3yKv8" target="_blank" rel="noopener noreferrer">Expressivity Saturation</a>
             <small>TMLR 2026</small>
+            <small class="research-keyword-mobile">Region Utilization</small>
           </div>
         </article>
       </div>
