@@ -215,7 +215,15 @@ button, input { font: inherit; }
 .pub-links a { color: var(--accent); font-weight: 720; font-size: .94rem; }
 
 .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.service-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.service-grid .info-card { min-width: 0; }
+.service-grid .service-venue {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-wrap: normal;
+}
+.service-grid .service-venue a { overflow-wrap: normal; }
+
 
 .info-card {
   border: 1px solid var(--line);
